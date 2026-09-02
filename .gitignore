@@ -1,0 +1,3 @@
+*.o
+calc_client
+calc_server

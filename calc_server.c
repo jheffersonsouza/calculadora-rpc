@@ -11,9 +11,8 @@ add_1_svc(numbers *argp, struct svc_req *rqstp)
 {
 	static int  result;
 
-	/*
-	 * insert server code here
-	 */
+	printf("add(%d, %d) a chamada dos argumentos a e b \n", argp->a, argp->b );
+	result = argp->a + argp->b;
 
 	return &result;
 }
@@ -23,9 +22,8 @@ sub_1_svc(numbers *argp, struct svc_req *rqstp)
 {
 	static int  result;
 
-	/*
-	 * insert server code here
-	 */
+	printf("sub(%d, %d) a chamada dos argumentos a e b \n", argp->a, argp->b );
+	result = argp->a - argp->b;
 
 	return &result;
 }
@@ -35,9 +33,8 @@ mul_1_svc(numbers *argp, struct svc_req *rqstp)
 {
 	static int  result;
 
-	/*
-	 * insert server code here
-	 */
+	printf("mul(%d, %d) a chamada dos argumentos a e b \n", argp->a, argp->b );
+	result = argp->a * argp->b;
 
 	return &result;
 }
@@ -47,9 +44,14 @@ divide_1_svc(numbers *argp, struct svc_req *rqstp)
 {
 	static int  result;
 
-	/*
-	 * insert server code here
-	 */
+	printf("div(%d, %d) a chamada dos argumentos a e b \n", argp->a, argp->b );
+	if (argp->b == 0) {
+		printf("divisao por zero, retornando 0 \n");
+		result = 0;
+	}
+	else {
+		result = argp->a / argp->b;
+	}
 
 	return &result;
 }
